@@ -225,7 +225,7 @@ header img {
 }
 
 /* ---------------------cardapio----------------- */
-.container {
+#cardapio {
     text-align: center;
     padding: 40px 0;
     margin-bottom: 150px;
@@ -294,8 +294,8 @@ header img {
 
 /* ------------------------mapa--------------- */
 
-#localizacao-wrapper {
-    margin-bottom: 95vh;
+#local {
+    margin-bottom: 30vh;
 
 }
 
@@ -390,6 +390,123 @@ header img {
     .localizacao-mapa img {
         width: 330px;
         height: 360px;
+    }
+}
+/* -----------eventos---------- */
+/* --- Seção Principal --- */
+#events-section {
+    /* text-align: center; */
+    padding: 40px 20px;
+    max-width: 1200px; /* Limite a largura da seção para melhor visualização */
+    width: 1800px;
+    
+}
+
+#events-section{
+    margin-left: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Título */
+.section-title {
+    font-size: 2em;
+    color: #4b2a1a; /* Cor marrom escura, ajuste conforme necessário */
+    margin-bottom: 50px;
+    /* Estilo de fonte simulado para o título do protótipo */
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Contêiner dos Cartões (Layout Flexbox) */
+.events-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaçamento entre os cartões */
+    flex-wrap: wrap; /* Permite que os cartões quebrem a linha em telas menores */
+}
+
+/* --- Estilo Base do Cartão --- */
+.event-card {
+    width: 100%;
+    max-width: 300px; /* Largura máxima para cada cartão */
+    height: 450px; /* Altura fixa para todos os cartões */
+    border-radius: 20px; /* Borda arredondada como no protótipo */
+    overflow: hidden; /* Garante que o conteúdo e a imagem respeitem o border-radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Alinha o conteúdo na parte inferior */
+    text-align: left;
+}
+
+/* Imagens de Fundo - SUBSTITUA PELOS NOMES DOS SEUS ARQUIVOS */
+/* Card 1 */
+.event-card:not(.card-2):not(.card-3) {
+    /* Nome do arquivo da imagem de degustação */
+    background-image: url(./img/CARD\ 01.jpg); 
+}
+
+/* Card 2 */
+.event-card.card-2 {
+    /* Nome do arquivo da imagem da feira */
+    background-image: url(./img/CARD\ 02.jpg); 
+}
+
+/* Card 3 */
+.event-card.card-3 {
+    /* Nome do arquivo da imagem da aula de massas */
+    background-image: url(./img/CARD\ 03.jpg); 
+}
+
+/* Conteúdo de Texto dentro do Card */
+.card-content {
+    color: white; /* Cor do texto */
+    padding: 20px;
+    width: 100%;
+    /* Gradiente para escurecer a parte inferior da imagem e melhorar a leitura do texto */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.0) 50%);
+}
+
+/* Título do Evento */
+.event-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Data do Evento */
+.event-date {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Informação Adicional */
+.event-info {
+    font-size: 0.8em;
+    font-weight: 300;
+    opacity: 0.8; /* Um pouco mais transparente como no protótipo */
+    margin-top: 5px;
+}
+
+/* --- Media Query para Responsividade --- */
+@media (max-width: 992px) {
+    .events-container {
+        flex-direction: column; /* Empilha os cards em telas menores */
+        align-items: center;
+    }
+
+    .event-card {
+        max-width: 400px; /* Aumenta a largura em telas menores para aproveitar o espaço */
+        height: 350px;
     }
 }
 
@@ -521,105 +638,13 @@ header img {
     background-color: var(--branco);
 }
 
-/* ------------cookie--------- */
 
-/* --- Estilos do Aviso de Cookies --- */
-
-.cookie-consent-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    /* Limita a largura em telas maiores */
-    max-width: 600px;
-    padding: 20px;
-}
-
-.consent-text {
-    /* Usa Flexbox para alinhar o checkbox customizado e o texto */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    /* Alinha o checkbox no topo do bloco de texto */
-    font-size: 16px;
-    line-height: 1.5;
-    color: #333333;
-    /* Cor do texto padrão */
-    cursor: pointer;
-}
-
-.consent-text strong {
-    font-weight: bold;
-}
-
-/* Esconde o checkbox nativo do navegador */
-#cookie-accept {
-    /* Propriedades para esconder visualmente, mas manter acessível */
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* Estilização da caixa de seleção customizada */
-.custom-checkbox {
-    /* Dimensões do quadrado */
-    width: 20px;
-    height: 20px;
-
-    /* Estilo da borda */
-    border: 2px solid #555;
-    /* Borda cinza escura */
-
-    /* Para a posição do V de "checado" */
-    position: relative;
-
-    /* Espaçamento entre o quadrado e o texto */
-    margin-right: 15px;
-
-    /* Para garantir que o quadrado esteja no topo */
-    flex-shrink: 0;
-}
-
-/* Estilo do V/check (inicialmente invisível) */
-.custom-checkbox::after {
-    content: '';
-    position: absolute;
-    /* Ajusta a posição do V dentro do quadrado */
-    left: 6px;
-    top: 2px;
-
-    /* Desenha o V (tick mark) */
-    width: 6px;
-    height: 12px;
-    border: solid #000000;
-    /* Cor do V/check */
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-
-    /* Oculta o V/check por padrão */
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-/* Estado CHECADO: Mostra o V/check quando o input está checado */
-#cookie-accept:checked+.consent-text .custom-checkbox::after {
-    opacity: 1;
-    /* Torna o V visível */
-}
-
-/* Estado Hover/Focus (Opcional: Feedback visual de interação) */
-.consent-text:hover .custom-checkbox {
-    border-color: #000000;
-    /* Escurece a borda ao passar o mouse */
-}
 
 /* -------------footer---------- */
 /* Estilos gerais para reset e fontes */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
     /* Cor de fundo da página (cinza claro) */
 }
 
@@ -672,7 +697,6 @@ a {
 /* Barra de Promoção */
 .footer-promo-bar {
     background-color: var(--dourado);
-    color: var(--color-dark-brown);
     text-align: center;
     padding: 15px 0;
     font-size: 15px;
@@ -685,7 +709,6 @@ a {
 /* Conteúdo Principal (Três Colunas) */
 .footer-main-content {
     background-color: var(--bordo);
-    color: var(--color-text-white);
     padding: 40px 5%;
     /* Espaçamento interno */
     display: flex;
@@ -779,7 +802,7 @@ a {
 }
 
 .work-links a:hover {
-    color: var(--color-light-gold);
+    color: var(--dourado);
 }
 
 
@@ -801,17 +824,18 @@ a {
     align-items: center;
     margin-bottom: 15px;
     /* Para o protótipo, o email e telefone estão em caixas separadas */
-    border: 1px solid var(--color-contact-border);
+    border: 1px solid var(--branco);
     padding: 10px 15px;
     border-radius: 5px;
-    background-color: transparent;
     transition: border-color 0.3s;
     color: var(--branco);
+    
 }
 
 .contact-item i {
     margin-right: 10px;
     font-size: 18px;
+
 }
 
 /* Estilo específico para o telefone (retirado do protótipo) */
